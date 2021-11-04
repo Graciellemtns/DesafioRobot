@@ -44,3 +44,11 @@ E adicionar o produto no carrinho
 Clicar no botão "Proced to checkout"
     Wait Until Element Is Visible    xpath=//*[@title="Proceed to checkout"]
     Click Element     xpath=//*[@title="Proceed to checkout"]
+
+Excluir produto do carrinho
+    Wait Until Element Is Visible   xpath=//*[@class="icon-trash"]
+    Click Element    xpath=//*[@class="icon-trash"]
+
+Conferir mensagem "${MENSAGEM}"
+    Wait Until Element Is Visible    xpath=//*[text()="Your shopping cart is empty."]
+    Element Text Should Be    //*[text()="Your shopping cart is empty."]    ${MENSAGEM}

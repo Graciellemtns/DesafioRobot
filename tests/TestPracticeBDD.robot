@@ -10,7 +10,7 @@ ${URL}        http://automationpractice.com/index.php
 
 
 *** Test Case ***
-Caso de Teste 03: Listar Produtos
+Cenario 03: Listar Produtos
     Dado que estou na pagina home do site
     Quando acessar a categoria "Women"
     E consultar a sub-categoria "Summer Dresses"
@@ -18,14 +18,33 @@ Caso de Teste 03: Listar Produtos
 
 ##robot -d ./results tests\TestPracticeBDD.robot
 
-Caso de Teste 04: Adicionar Produtos no Carrinho
+Cenario 04: Adicionar Produtos no Carrinho
     Dado que estou na pagina home do site
     Quando pesquisar pelo produto "t-shirt"
     E adicionar o produto no carrinho
     Então a tela de carrinhos deve ser mostrada junto com os dados e valores do produto
 
 
+Cenario 05: Remover produtos
+    Dado que estou na pagina home do site
+    E existe um produto "t-shirt" adicionado no carrinho
+    Quando excluo o produto do carrinho
+    Então deve exibir a mensagem "Your shopping cart is empty."
+
+
+
 *** KeyWords ***
 
 Então a tela de carrinhos deve ser mostrada junto com os dados e valores do produto
     Clicar no botão "Proced to checkout"
+
+E existe um produto "${PRODUTO}" adicionado no carrinho
+    Quando pesquisar pelo produto "${PRODUTO}"
+    E adicionar o produto no carrinho
+    Clicar no botão "Proced to checkout"
+
+Quando excluo o produto do carrinho
+    Excluir produto do carrinho
+
+Então deve exibir a mensagem "${MENSAGEM}"
+    Conferir mensagem "${MENSAGEM}"
