@@ -1,56 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211020 15:13:44.924" rpa="false" schemaversion="2">
-<suite id="s1" name="TestPracticeBDD" source="C:\Users\graci\OneDrive\Documentos\UDEMY\Robot\DesafioSuiteTestePratice\tests\TestPracticeBDD.robot">
-<test id="s1-t1" name="Caso de Teste 03: Listar Produtos">
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211104 12:57:05.195" rpa="false" schemaversion="2">
+<suite id="s1" name="Tests" source="C:\Users\graci\OneDrive\Documentos\UDEMY\Robot\DesafioSuiteTestePratice\tests">
+<suite id="s1-s1" name="TestPracticeBDD" source="C:\Users\graci\OneDrive\Documentos\UDEMY\Robot\DesafioSuiteTestePratice\tests\TestPracticeBDD.robot">
+<test id="s1-s1-t1" name="Caso de Teste 04: Adicionar Produtos no Carrinho">
 <kw name="Abrir navegador" library="Resources" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20211020 15:13:45.186" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20211020 15:13:45.186" endtime="20211020 15:13:46.480"/>
+<msg timestamp="20211104 12:57:05.679" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20211104 12:57:05.678" endtime="20211104 12:57:08.187"/>
 </kw>
-<status status="PASS" starttime="20211020 15:13:45.186" endtime="20211020 15:13:46.480"/>
+<status status="PASS" starttime="20211104 12:57:05.678" endtime="20211104 12:57:08.187"/>
 </kw>
 <kw name="Dado que estou na pagina home do site" library="Resources">
 <kw name="Go To" library="SeleniumLibrary">
 <arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20211020 15:13:46.483" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
-<status status="PASS" starttime="20211020 15:13:46.483" endtime="20211020 15:13:53.576"/>
+<msg timestamp="20211104 12:57:08.189" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" starttime="20211104 12:57:08.187" endtime="20211104 12:57:12.424"/>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <arg>My Store</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20211020 15:13:53.583" level="INFO">Page title is 'My Store'.</msg>
-<status status="PASS" starttime="20211020 15:13:53.576" endtime="20211020 15:13:53.583"/>
+<msg timestamp="20211104 12:57:12.435" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" starttime="20211104 12:57:12.424" endtime="20211104 12:57:12.435"/>
 </kw>
-<status status="PASS" starttime="20211020 15:13:46.482" endtime="20211020 15:13:53.583"/>
+<status status="PASS" starttime="20211104 12:57:08.187" endtime="20211104 12:57:12.436"/>
 </kw>
-<kw name="Quando acessar a categoria &quot;Women&quot;" library="Resources" sourcename="Quando acessar a categoria &quot;${CATEGORIA}&quot;">
+<kw name="Quando pesquisar pelo produto &quot;t-shirt&quot;" library="Resources" sourcename="Quando pesquisar pelo produto &quot;${PRODUTO}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=search_query</arg>
+<arg>${PRODUTO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211104 12:57:12.438" level="INFO">Typing text 't-shirt' into text field 'name=search_query'.</msg>
+<status status="PASS" starttime="20211104 12:57:12.438" endtime="20211104 12:57:12.704"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=submit_search</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211104 12:57:12.704" level="INFO">Clicking element 'name=submit_search'.</msg>
+<status status="PASS" starttime="20211104 12:57:12.704" endtime="20211104 12:57:14.091"/>
+</kw>
+<status status="PASS" starttime="20211104 12:57:12.437" endtime="20211104 12:57:14.091"/>
+</kw>
+<kw name="E adicionar o produto no carrinho" library="Resources">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>xpath=//*[@id="block_top_menu"]//a[@title="${CATEGORIA}"]</arg>
+<arg>xpath=//img[@src="http://automationpractice.com/img/p/1/1-home_default.jpg"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20211020 15:13:53.584" endtime="20211020 15:13:53.619"/>
+<status status="PASS" starttime="20211104 12:57:14.094" endtime="20211104 12:57:14.203"/>
 </kw>
-<kw name="Mouse Over" library="SeleniumLibrary">
-<arg>xpath=//*[@id="block_top_menu"]//a[@title="${CATEGORIA}"]</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<msg timestamp="20211020 15:13:53.620" level="INFO">Simulating Mouse Over on element 'xpath=//*[@id="block_top_menu"]//a[@title="Women"]'.</msg>
-<status status="PASS" starttime="20211020 15:13:53.619" endtime="20211020 15:13:53.918"/>
+<kw name="Click Image" library="SeleniumLibrary">
+<arg>xpath=//img[@src="http://automationpractice.com/img/p/1/1-home_default.jpg"]</arg>
+<doc>Clicks an image identified by ``locator``.</doc>
+<msg timestamp="20211104 12:57:14.203" level="INFO">Clicking image 'xpath=//img[@src="http://automationpractice.com/img/p/1/1-home_default.jpg"]'.</msg>
+<status status="PASS" starttime="20211104 12:57:14.203" endtime="20211104 12:57:16.270"/>
 </kw>
-<status status="PASS" starttime="20211020 15:13:53.584" endtime="20211020 15:13:53.919"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//*[@name="Submit"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211104 12:57:16.270" endtime="20211104 12:57:16.321"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@name="Submit"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211104 12:57:16.321" level="INFO">Clicking element '//*[@name="Submit"]'.</msg>
+<status status="PASS" starttime="20211104 12:57:16.321" endtime="20211104 12:57:16.430"/>
+</kw>
+<status status="PASS" starttime="20211104 12:57:14.093" endtime="20211104 12:57:16.431"/>
+</kw>
+<kw name="Então a tela de carrinhos deve ser mostrada junto com os dados e valores do produto">
+<kw name="Clicar no botão &quot;Proced to checkout&quot;" library="Resources">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//*[@title="Proceed to checkout"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211104 12:57:16.434" endtime="20211104 12:57:17.501"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//*[@title="Proceed to checkout"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211104 12:57:17.501" level="INFO">Clicking element 'xpath=//*[@title="Proceed to checkout"]'.</msg>
+<status status="PASS" starttime="20211104 12:57:17.501" endtime="20211104 12:57:18.983"/>
+</kw>
+<status status="PASS" starttime="20211104 12:57:16.433" endtime="20211104 12:57:18.984"/>
+</kw>
+<status status="PASS" starttime="20211104 12:57:16.432" endtime="20211104 12:57:18.984"/>
 </kw>
 <kw name="Fechar navegador" library="Resources" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20211020 15:13:53.920" endtime="20211020 15:13:56.037"/>
+<status status="PASS" starttime="20211104 12:57:18.987" endtime="20211104 12:57:21.300"/>
 </kw>
-<status status="PASS" starttime="20211020 15:13:53.919" endtime="20211020 15:13:56.037"/>
+<status status="PASS" starttime="20211104 12:57:18.986" endtime="20211104 12:57:21.301"/>
 </kw>
-<status status="PASS" starttime="20211020 15:13:45.186" endtime="20211020 15:13:56.037"/>
+<status status="PASS" starttime="20211104 12:57:05.676" endtime="20211104 12:57:21.303"/>
 </test>
-<status status="PASS" starttime="20211020 15:13:44.924" endtime="20211020 15:13:56.046"/>
+<status status="PASS" starttime="20211104 12:57:05.268" endtime="20211104 12:57:21.310"/>
+</suite>
+<status status="PASS" starttime="20211104 12:57:05.199" endtime="20211104 12:57:21.320"/>
 </suite>
 <statistics>
 <total>
@@ -59,7 +106,8 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TestPracticeBDD">TestPracticeBDD</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="TestPracticeBDD">Tests.TestPracticeBDD</stat>
 </suite>
 </statistics>
 <errors>
