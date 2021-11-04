@@ -25,12 +25,16 @@ Cenario 04: Adicionar Produtos no Carrinho
     Então a tela de carrinhos deve ser mostrada junto com os dados e valores do produto
 
 
-Cenario 05: Remover produtos
+Cenario 05: Remover Produtos
     Dado que estou na pagina home do site
     E existe um produto "t-shirt" adicionado no carrinho
     Quando excluo o produto do carrinho
     Então deve exibir a mensagem "Your shopping cart is empty."
 
+Cenario 06: Adicionar Cliente
+    Dado que estou na pagina home do site
+    Quando eu solicitar para fazer o cadastro de novo cliente
+    Então o cadastro deve ser efetuado com sucesso
 
 
 *** KeyWords ***
@@ -48,3 +52,12 @@ Quando excluo o produto do carrinho
 
 Então deve exibir a mensagem "${MENSAGEM}"
     Conferir mensagem "${MENSAGEM}"
+
+Quando eu solicitar para fazer o cadastro de novo cliente
+    Clicar no "Sign in"
+    Preencher o email
+    Preencher campos de cadastro
+    Clicar "Register"
+
+Então o cadastro deve ser efetuado com sucesso
+    Confirmar registro

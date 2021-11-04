@@ -52,3 +52,46 @@ Excluir produto do carrinho
 Conferir mensagem "${MENSAGEM}"
     Wait Until Element Is Visible    xpath=//*[text()="Your shopping cart is empty."]
     Element Text Should Be    //*[text()="Your shopping cart is empty."]    ${MENSAGEM}
+
+Clicar no "Sign in"
+    Wait Until Element Is Visible    xpath=//*[@class="login"]
+    Click Element    //*[@class="login"]
+
+Preencher o email
+    Wait Until Element Is Visible    xpath=//*[@id="email_create"]
+    Input Text    xpath=//*[@id="email_create"]    xu2a1129@uorak.com
+    Click Element    xpath=//*[@id="SubmitCreate"]
+
+Preencher campos de cadastro
+    Wait Until Element Is Visible    xpath=//*[text()="Your personal information"]
+    Click Element    xpath=//*[@id="id_gender1"]
+    Input Text    xpath=//*[@id="customer_firstname"]    Beiwu
+    Input Text    xpath=//*[@id="customer_lastname"]    Caisl
+    Input Text    xpath=//*[@id="passwd"]    guaHNpnk
+
+    Set Focus To Element    xpath=//*[@id="days"]
+    Wait Until Element Is Visible    xpath=//*[@id="days"]
+    Select From List By Index    xpath=//*[@id="days"]    27
+
+    Set Focus To Element    xpath=//*[@id="months"]
+    Select From List By Value    xpath=//*[@id="months"]      3
+
+    Set Focus To Element    xpath=//*[@id="years"]
+    Select From List By Value    xpath=//*[@id="years"]      1991
+
+    Click Element    xpath=//*[@id="newsletter"]
+
+    Set Focus To Element    xpath=//*[@id="id_state"]
+    Select From List By Value      xpath=//*[@id="id_state"]    2
+
+    Input Text    xpath=//*[@id="address1"]    Rua Sírius
+    Input Text    xpath=//*[@id="city"]    Goiânia
+    Input Text    xpath=//*[@id="postcode"]    00000
+    Input Text    xpath=//*[@id="phone_mobile"]    (19) 97084-8339
+
+Clicar "Register"
+    Click Element    xpath=//button[@id="submitAccount"]
+
+Confirmar registro
+    Wait Until Element Is Visible    xpath=//h1[text()="My account"]
+    Element Text Should Be    xpath=//h1[text()="My account"]    MY ACCOUNT
