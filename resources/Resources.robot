@@ -59,18 +59,18 @@ Clicar no "Sign in"
 
 Preencher o email
     Wait Until Element Is Visible    xpath=//*[@id="email_create"]
-    Input Text    xpath=//*[@id="email_create"]    xu2a1129@uorak.com
+    Input Text    xpath=//*[@id="email_create"]     ab444c@123.com
     Click Element    xpath=//*[@id="SubmitCreate"]
 
 Preencher campos de cadastro
     Wait Until Element Is Visible    xpath=//*[text()="Your personal information"]
     Click Element    xpath=//*[@id="id_gender1"]
-    Input Text    xpath=//*[@id="customer_firstname"]    Beiwu
-    Input Text    xpath=//*[@id="customer_lastname"]    Caisl
-    Input Text    xpath=//*[@id="passwd"]    guaHNpnk
+    Input Text    xpath=//*[@id="customer_firstname"]    ${DADOS.nome}
+    Input Text    xpath=//*[@id="customer_lastname"]    ${DADOS.sobrenome}
+    Input Text    xpath=//*[@id="passwd"]    ${DADOS.senha}
 
     Set Focus To Element    xpath=//*[@id="days"]
-    Wait Until Element Is Visible    xpath=//*[@id="days"]
+    #Wait Until Element Is Visible    xpath=//*[@id="days"]
     Select From List By Index    xpath=//*[@id="days"]    27
 
     Set Focus To Element    xpath=//*[@id="months"]
@@ -82,12 +82,12 @@ Preencher campos de cadastro
     Click Element    xpath=//*[@id="newsletter"]
 
     Set Focus To Element    xpath=//*[@id="id_state"]
-    Select From List By Value      xpath=//*[@id="id_state"]    2
+    Select From List By Value      xpath=//*[@id="id_state"]    ${DADOS.estado}
 
-    Input Text    xpath=//*[@id="address1"]    Rua Sírius
-    Input Text    xpath=//*[@id="city"]    Goiânia
-    Input Text    xpath=//*[@id="postcode"]    00000
-    Input Text    xpath=//*[@id="phone_mobile"]    (19) 97084-8339
+    Input Text    xpath=//*[@id="address1"]    ${DADOS.endereco}
+    Input Text    xpath=//*[@id="city"]    ${DADOS.cidade}
+    Input Text    xpath=//*[@id="postcode"]    ${DADOS.CEP}
+    Input Text    xpath=//*[@id="phone_mobile"]    ${DADOS.telefone}
 
 Clicar "Register"
     Click Element    xpath=//button[@id="submitAccount"]

@@ -8,6 +8,7 @@ Test Teardown     Fechar navegador
 ${BROWSER}    chrome
 ${URL}        http://automationpractice.com/index.php
 
+&{DADOS}      nome=Ana    sobrenome=Maria     senha=123456    endereco=Rua Framework    cidade=Sao Paulo    CEP=00000  estado=2  telefone=11964824355     email=abc@123.com
 
 *** Test Case ***
 Cenario 03: Listar Produtos
